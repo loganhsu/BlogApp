@@ -281,38 +281,39 @@
                             <div class="well" style="border-left: 5px solid #00C851; height: 300px;">
                             <!--If the user is logged in, show the new comment form-->
                                 <h4> Add a New Work Experience <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span></h4>
-                                <form id="add-comment-form" >
-                                    <div class="form-group">
-                                        <label>Name of Job Title</label>
-                                        <input class="form-control" type="text">
+                                
+                                <form>
+                                    <div class="form-row">
+                                        <div class="form-group">
+                                            <label for="inputAddress2">Job Title</label>
+                                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputAddress">Company Name</label>
+                                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                                        </div>  
+                                        <div class="form-group col-md-6">
+                                            <label for="inputEmail4">Working Period ( From )</label>
+                                            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                        </div>
+                                        <div class="form-group col-md-6">
+                                            <label for="inputPassword4"> ( To ) </label>
+                                            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Company Name</label>
-                                        <input class="form-control" type="text">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-10">
+                                            <label for="inputAddress2">Responsibilitiy</label>
+                                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+                                        </div>
+                                        <div class="form-group col-md-2">
+                                            <label>Add</label>
+                                            <button class="btn btn-primary">Add</button>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Working Period</label>
-                                        <form>
-                                            <div class="form-row">
-                                                <div class="col">
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                                <div class="col">
-                                                    <input type="text" class="form-control">
-                                                </div>
-                                            </div>
-                                        </form>
-                                        
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Responsibilitiy</label>
-                                        <input class="form-control" type="text">
-                                    </div>
-                                    <div class="form-group">
-                                        <button class="btn btn-success btn-sm"> Submit <span class="glyphicon glyphicon-comment" aria-hidden="true"></span></button>
-                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </form>
-                        
+                                
                             </div>
                         </div>
                 <!--Collapse Add a comment form END-->
