@@ -6,4 +6,4 @@ var skillSchema = new mongoose.Schema({
     skillRate: String
 });
 
-module.exports = mongoose.model("skills", skillSchema);
+module.exports = mongoose.model("Skill", skillSchema);

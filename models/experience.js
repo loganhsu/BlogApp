@@ -15,4 +15,4 @@ var experienceSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("experience", experienceSchema);
+module.exports = mongoose.model("Experience", experienceSchema);

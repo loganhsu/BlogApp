@@ -33,33 +33,27 @@
           <br/>
         </div>
         
-        <div class="con-con thumbnail">
-          <div class="col-md-6">
-            <img class="img-responsive" src="https://www.thesprucepets.com/thmb/wTPLSiQYaPSGJ2HHwJHiYm6b7yw=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-140212719-56a2bd493df78cf7727964af.jpg">
+        <% blogs.forEach(function(blog) { %>
+          <div class="con-con thumbnail">
+            <div class="col-md-6">
+              <img src=" <%= blog.image %>">
+            </div>
+            <div class="col-md-6">
+              <h3 class="header" style="text-align: center;" href="/<%= blog._id %>"> <%= blog.title %> </h3>
+              <div class="meta">
+                <h5> Post Date: <%= blog.created.toDateString() %> </h5>
+              </div>
+              <div class="describtion" style="margin-top: 10px;">
+                <p> <%= blog.content.substring(0, 200) %></p>
+              </div>
+            </div>
+            <br/>
           </div>
-          <div class="col-md-6">
-            <h3>Date: 2019-01-01</h3>
-            <p>
-              Cheeks puffed, growling, and ready to pick a fight with a barn cat: The black-bellied hamster is a far cry from the domesticated hamster you might have as a pet. It’s a good thing these black-bellied hamsters are defending themselves, because in France, where only 500 to 1,000 remain in the wild, these courageous critters are literally fighting for survival.
-              Cheeks puffed, growling, and ready to pick a fight with a barn cat: The black-bellied hamster is a far cry from the domesticated hamster you might have as a pet. It’s a good thing these black-bellied hamsters are defending themselves, because in France, where only 500 to 1,000 remain in the wild, these courageous critters are literally fighting for survival.
-              Cheeks puffed, growling, and ready to pick a fight with a barn cat: The black-bellied hamster is a far cry from the domesticated hamster you might have as a pet. It’s a good thing these black-bellied hamsters are defending themselves, because in France, where only 500 to 1,000 remain in the wild, these courageous critters are literally fighting for survival.
-            </p>
-          </div>
-          <br/>
-        </div>
+        <% }) %>
         
-        <div class="con-con thumbnail">
-          <div class="col-md-6">
-            <img class="img-responsive" src="https://www.thesprucepets.com/thmb/wTPLSiQYaPSGJ2HHwJHiYm6b7yw=/960x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/GettyImages-140212719-56a2bd493df78cf7727964af.jpg">
-          </div>
-          <div class="col-md-6">
-            <h3>Date: 2019-01-01</h3>
-            <p>
-              Cheeks puffed, growling, and ready to pick a fight with a barn cat: The black-bellied hamster is a far cry from the domesticated hamster you might have as a pet. It’s a good thing these black-bellied hamsters are defending themselves, because in France, where only 500 to 1,000 remain in the wild, these courageous critters are literally fighting for survival.
-            </p>
-          </div>
-          <br/>
-        </div>
+        
+        
+        <a class="btn btn-primary" href="/new">Add a new blog</a>
         
       </div>
     </div>
