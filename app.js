@@ -18,6 +18,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/views"));
 app.set("view engine", "ejs");
 
+//connect to home page and list all of the blogs
 app.get("/", function(req, res) {
     Blog.find({}, function(err, blogs) {
         if(err) {
@@ -46,10 +47,7 @@ app.post("/", function(req, res) {
     })
 })
 
-// app.get("/resume", function(req, res) {
-//     res.render("resume");
-// });
-
+//connect to resume page and load all of the skill
 app.get("/resume", function(req, res) {
     Skill.find({}, function(err, allSkills) {
         if(err) {
@@ -63,23 +61,16 @@ app.get("/resume", function(req, res) {
 
 //for add a new skill to resume
 app.post("/resume", function(req, res) {
-    req.body.skill.body = req.sanitize(req.body.skill.body);
     Skill.create(req.body.skill, function(err, skill) {
         if(err) {
             console.log("server connect error")
         } else {
+            skill.save();
             console.log("add success");
             res.redirect("/resume");
         }
     })
 })
-
-//for getting a new form for add a new skill    
-app.get("/resume/newSkill", function(req, res) {
-    res.render("/resume/newSkill");
-});
-
-
 
 app.get("/register", function(req, res) {
     res.render("register");
