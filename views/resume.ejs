@@ -3,49 +3,65 @@
 
     <div class="container">
         <div class="personal-info">
-            <h1>LOGAN HSU</h1>
-            <h5>Address: 10318 Lauder Ave Edmonton, T5E5P8</h5>
-            <h5>Phone Number: 780-271-1288</h5>
-            <h5>Email: loganhsu@hotmail.com</h5>
+            <address>
+                <strong><h2>LOGAN HSU</h2></strong>
+                Address: 10318 Lauder Ave Edmonton, T5E5P8<br/>
+                Phone Number: (780)-271-1288<br/>
+                Email: loganhsu@hotmail.com
+            </address>
         </div>
         
-        
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3 skill">
                 <h2>Skills</h2>
-                
                 <div class="skill-column">
-                    <div class="skill-item">
-                        <div class="skill-label">HTML</div>
-                        <div class="skill-icons">
-                            <span class="icon-act"></span>
-                            <span class="icon-act"></span>
-                            <span class="icon-act"></span>
-                            <span class="icon-non"></span>
-                            <span class="icon-non"></span>
-                        </div>
-                    </div>
-                    
                     <% skills.forEach(function(skill) { %>
                         <div class="skill-item">
                             <div class="skill-label" href="/resume/<%= skill._id%>"> <%= skill.skillName %> </div>
                             <div class="skill-icons">
-                                <% for ( i = 0; i < skill.skillRate.length; i++ ) %>
-                                <span class="icon-act"></span>
-                                <span class="icon-act"></span>
-                                <span class="icon-act"></span>
-                                <span class="icon-non"></span>
-                                <span class="icon-non"></span>
+                                <% if(skill.skillRate == "1") { %>
+                                    <span class="icon-act"></span>
+                                    <span class="icon-non"></span>
+                                    <span class="icon-non"></span>
+                                    <span class="icon-non"></span>
+                                    <span class="icon-non"></span>
+                                <% } else if(skill.skillRate == "2") { %>
+                                    <span class="icon-act"></span>
+                                    <span class="icon-act"></span>
+                                    <span class="icon-non"></span>
+                                    <span class="icon-non"></span>
+                                    <span class="icon-non"></span>
+                                <% } else if(skill.skillRate == "3") { %>
+                                    <span class="icon-act"></span>
+                                    <span class="icon-act"></span>
+                                    <span class="icon-act"></span>
+                                    <span class="icon-non"></span>
+                                    <span class="icon-non"></span>
+                                <% } else if(skill.skillRate == "4") { %>
+                                    <span class="icon-act"></span>
+                                    <span class="icon-act"></span>
+                                    <span class="icon-act"></span>
+                                    <span class="icon-act"></span>
+                                    <span class="icon-non"></span>
+                                <% } else { %>
+                                    <span class="icon-act"></span>
+                                    <span class="icon-act"></span>
+                                    <span class="icon-act"></span>
+                                    <span class="icon-act"></span>
+                                    <span class="icon-act"></span>
+                                <% } %>
+                                
                             </div>
                         </div>
                     <% }) %>
                     
-                    
-                    <div class="well">
-                        <div class="text-right">
-                            <a class="btn btn-primary" role="button" data-toggle="collapse" data-target="#collapseComment1" aria-expanded="false" aria-controls="collapseComment1">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add New Skill </a>
-                        </div>
+                    <% if(currentUser) { %>
+                        <div class="well">
+                            <div class="text-right">
+                                <a class="btn btn-primary" role="button" data-toggle="collapse" data-target="#collapseComment1" aria-expanded="false" aria-controls="collapseComment1">
+                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add New Skill </a>
+                            </div>
+                       
                         
                         <!--Collapse Add a comment form START-->
                         <div class="collapse" id="collapseComment1">
@@ -60,11 +76,11 @@
                                     <div class="form-group">
                                         <label>Skill Rate</label>
                                         <select name="skill[skillRate]" class="form-control">
-                                            <option>1</option>
-                                            <option>2</option>
-                                            <option>3</option>
-                                            <option>4</option>
-                                            <option>5</option>
+                                            <option value="1">Novice</option>
+                                            <option value="2">Advanced Beginner</option>
+                                            <option value="3">Competence</option>
+                                            <option value="4">Proficient</option>
+                                            <option value="5">Expert</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -76,14 +92,18 @@
                         </div>
                 <!--Collapse Add a comment form END-->
                     </div>
+                 <% } %>    
                     
                 </div>
             </div>
         
-            <div class="col-md-9">
-                <h2>Profile</h2>
+            <div class="col-md-9 main-content">
                 <div>
-                    <h3>Profile or Highlight of qualification</h3>
+                    
+                    <h3 class="content-session">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        Profile or Highlight of qualification
+                    </h3>
                     <ul>
                         <li>Diploma in Digital Media and IT special using in Application Development.</li>
                         <li>Project management skills to complete projects on time, on budget and meeting Quality Assurance guideline.</li>
@@ -93,7 +113,10 @@
                     </ul>
                 </div>
                 <div>
-                    <h3>Education</h3>
+                    <h3 class="content-session">
+                        <span class="glyphicon glyphicon-education" aria-hidden="true"></span>
+                        Education
+                    </h3>
                     <div>
                         <div class="col-md-9">
                             <h4>Digital Media and IT Diploma (Honours)  GPA: 3.9</h4>
@@ -156,8 +179,11 @@
                 </div>
                 
                 <div>
-                    <h3>WORK EXPERIENCE</h3>
-                    <div>
+                    <h3 class="content-session">
+                        <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
+                        Work Experience
+                    </h3>
+                    <div class="work-session">
                         <div class="col-md-9">
                             <h4>Manufacturing Technician</h4>
                             <h4>KETEK GROUP</h4>
@@ -172,7 +198,7 @@
                         </ul>
                     </div>
                     
-                    <div>
+                    <div class="work-session">
                         <div class="col-md-9">
                             <h4>CAD Technician</h4>
                             <h4>Dewar Western Inc.</h4>
@@ -187,7 +213,7 @@
                         </ul>
                     </div>
                     
-                    <div>
+                    <div class="work-session">
                         <div class="col-md-9">
                             <h4>Waiter</h4>
                             <h4>Golden Szechuan Restaurant</h4>
@@ -202,7 +228,7 @@
                         </ul>
                     </div>
                     
-                    <div>
+                    <div class="work-session">
                         <div class="col-md-9">
                             <h4>Project Manager</h4>
                             <h4>Semiconductor Equipment Manufacture, Applied Materials Inc.</h4>
@@ -217,7 +243,7 @@
                         </ul>
                     </div>
                     
-                    <div>
+                    <div class="work-session">
                         <div class="col-md-9">
                             <h4>Electrical Engineer</h4>
                             <h4>Semiconductor Equipment Manufacture, Applied Materials Inc.</h4>
@@ -233,7 +259,7 @@
                         </ul>
                     </div>
                     
-                    <div>
+                    <div class="work-session">
                         <div class="col-md-9">
                             <h4>Electrical Engineer</h4>
                             <h4>LCD/LED TV/Monitor Manufacture, Chi Mei Optoelectronics Corporation</h4>
@@ -248,7 +274,7 @@
                         </ul>
                     </div>
                     
-                    <div>
+                    <div class="work-session">
                         <div class="col-md-9">
                             <h4>Electrical Engineer</h4>
                             <h4>Semiconductor Manufacture, Pynmax Inc.</h4>
@@ -264,7 +290,10 @@
                 </div>
                 
                 <div>
-                    <h3>AWARDS AND BURSARIES</h3>
+                    <h3 class="content-session">
+                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                        AWARDS AND BURSARIES
+                    </h3>
                     <ul>
                         <li>Dean’s Honour Roll  (2013, 2014)</li>
                         <li>Naresh Sharma Memorial Bursary 1</li>
@@ -274,54 +303,7 @@
                     </ul>
                 </div>
                 
-                <div class="well">
-                        <div class="text-right">
-                            <a class="btn btn-primary" role="button" data-toggle="collapse" data-target="#collapseComment2" aria-expanded="false" aria-controls="collapseComment2">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add New Work Experience </a>
-                        </div>
-                        
-                        <!--Collapse Add a comment form START-->
-                        <div class="collapse" id="collapseComment2">
-                            <div class="well" style="border-left: 5px solid #00C851; height: 300px;">
-                            <!--If the user is logged in, show the new comment form-->
-                                <h4> Add a New Work Experience <span class="glyphicon glyphicon glyphicon-pencil" aria-hidden="true"></span></h4>
-                                
-                                <form>
-                                    <div class="form-row">
-                                        <div class="form-group">
-                                            <label for="inputAddress2">Job Title</label>
-                                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="inputAddress">Company Name</label>
-                                            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-                                        </div>  
-                                        <div class="form-group col-md-6">
-                                            <label for="inputEmail4">Working Period ( From )</label>
-                                            <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-                                        </div>
-                                        <div class="form-group col-md-6">
-                                            <label for="inputPassword4"> ( To ) </label>
-                                            <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="form-group col-md-10">
-                                            <label for="inputAddress2">Responsibilitiy</label>
-                                            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-                                        </div>
-                                        <div class="form-group col-md-2">
-                                            <label>Add</label>
-                                            <button class="btn btn-primary">Add</button>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </form>
-                                
-                            </div>
-                        </div>
-                <!--Collapse Add a comment form END-->
-                    </div>
+                
             </div>
         </div>
     </div>

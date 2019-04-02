@@ -16,24 +16,44 @@
 }
 
 .content-container {
-  border-style: solid;
-  border-width: 5px;
+  margin: 20px 0;
+}
+
+.side-nav {
+  margin-left: 30px;
 }
 
 .personal-info {
   text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-bottom: 3px solid black; 
 }
 
-.skill-icons {
+.main-content {
+  border-left: solid 3px grey;
+}
+
+.content-session {
+  margin-bottom: 15px;
+  margin-top: 40px;
+  border-bottom: solid 3px black;
+  padding-bottom: 5px;
+}
+
+.skill {
   text-align: center;
   height: auto;
 }
 
-.skill-label {
-  text-align: center;
+.skill-column {
+  margin: 20px 0;
 }
 
-
+.skill-label {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
 
 .icon-act {
   height: 30px;
@@ -56,8 +76,13 @@
 .con-con {
   margin: 0;
   width: auto;
+  height: auto;
   min-height: 100px;
-  overflow: hidden;
+  overflow: auto;
+}
+
+.img {
+  width: 100%
 }
 
 .imgWrap {
@@ -70,6 +95,14 @@
   background-position: center;
   background-size: cover;  
   
+}
+
+.work-session {
+  margin-bottom: 25px;
+}
+
+.button-style {
+  margin-top: 30px;
 }
 
 .current {
