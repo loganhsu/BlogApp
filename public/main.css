@@ -105,6 +105,10 @@
   margin-top: 30px;
 }
 
+#deleteForm {
+    display: inline
+}
+
 .current {
   width:36%;
   

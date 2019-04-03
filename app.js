@@ -5,7 +5,8 @@ var express = require("express"),
     mongoose = require("mongoose"),
     expressSanitizer = require("express-sanitizer"),
     passport = require("passport"),
-    localStrategy = require("passport-local");
+    localStrategy = require("passport-local"),
+    methodOverride = require("method-override");
   
 //connect to models for data  
 var Skill = require("./models/skills.js"),
@@ -27,6 +28,7 @@ app.use(expressSanitizer());
 app.use(express.static(__dirname + "/public"));
 app.use(express.static(__dirname + "/views"));
 app.set("view engine", "ejs");
+app.use(methodOverride("_method"));
 
 //passport configuration
 app.use(require("express-session")({

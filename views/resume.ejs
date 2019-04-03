@@ -17,7 +17,15 @@
                 <div class="skill-column">
                     <% skills.forEach(function(skill) { %>
                         <div class="skill-item">
-                            <div class="skill-label" href="/resume/<%= skill._id%>"> <%= skill.skillName %> </div>
+                            <div class="skill-label" href="/resume/<%= skill._id%>">
+                                 
+                                 <form id="deleteForm" action="/resume/<%= skill._id %>?_method=DELETE" method="POST">
+                                     <%= skill.skillName %>
+                                     <% if(currentUser) { %>
+                                        <button class="btn btn-danger">Delete</button>
+                                     <% } %>
+                                </form>
+                            </div>
                             <div class="skill-icons">
                                 <% if(skill.skillRate == "1") { %>
                                     <span class="icon-act"></span>

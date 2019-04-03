@@ -26,4 +26,15 @@ router.post("/resume", function(req, res) {
     })
 })
 
+//delete skill
+router.delete("/resume/:id", function(req, res) {
+    Skill.findByIdAndRemove(req.params.id, function(err) {
+        if(err) {
+            console.log(err);
+        } else {
+            res.redirect("/resume");
+        }
+    });
+});
+
 module.exports = router;
